@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n=nums.size();
+        map<int,int>Index;
+        vector<int>result;
+        for(int i=0;i<n;i++){
+          if(Index.count(nums[i])!=0){//if num[i] exists
+            result.push_back(Index[nums[i]]);
+            result.push_back(i);
+            break;
+          }
+            Index[target-nums[i]]=i;//To void nums[i]+nums[i]=target
+        }
+      return result;
+    }
+};
