@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+      int l=s.length();
+      int first=0,last=0;//build scanning node
+      bool Exist[256]={false};//bulid finding list
+      int MAX=0;//substring length
+      while(last!=l){
+        MAX=max(MAX,last-first);//Do not need plus 1 because last++ at  last loop
+        if(Exist[(int)s[last]]){
+          while(s[first]!=s[last]){
+            Exist[(int)s[first]]=false;//clean the finding list 
+            first++;
+          }
+          first++;
+          last++;
+        }
+        else{
+          Exist[(int)s[last]]=true;//Add s[last] to finding list
+          last++;
+        }
+      }
+      MAX=max(MAX,l-first); 
+      return MAX; 
+    }
+};
