@@ -10,9 +10,9 @@ public:
           if(nums[mid]==target)return mid;
           else if(nums[mid]<nums[right]){
             if(nums[mid]<target&&target<=nums[right])left=mid+1;//case one
-            else right=mid-1;case three
+            else right=mid-1;//case three
           }
-          else{case two
+          else{//case two
             if(target<nums[mid]&&nums[left]<=target)right=mid-1;
             else left=mid+1;
             }
